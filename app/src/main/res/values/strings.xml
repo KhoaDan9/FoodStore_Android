@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">PhutSito</string>
+    <string name="input_username">Nhập tài khoản</string>
+    <string name="input_password">Nhập mật khẩu</string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="login_username">Tài khoản</string>
+    <string name="login_password">Mật khẩu</string>
+    <string name="login_btn">Đăng nhập</string>
+    <string name="shop_admin">Shop admin</string>
+    <string name="chao_xin_xin_chao">Chao xin xin chao</string>
+    <string name="add_staff">Thêm nhân viên</string>
+    <string name="staff_name">Họ và tên</string>
+    <string name="staff_date_of_birth">Năm sinh</string>
+    <string name="staff_cccd">Căn cước công dân</string>
+    <string name="staff_address">Địa chỉ</string>
+    <string name="staff_phone_number">Số điện thoại</string>
+    <string name="add_staff_btn">Thêm nhân viên</string>
+
+
+    <string name="nav_home">Home</string>
+    <string name="nav_favorite">Favorite</string>
+    <string name="nav_history">History</string>
+    <string name="nav_menu">Thực đơn</string>
+    <string name="nav_add_staff">Thêm nhân viên</string>
+    <string name="nav_staff_management">Quản lý nhân viên</string>
+    <string name="nav_account">Account</string>
+    <string name="nav_my_profile">My Profile</string>
+    <string name="nav_change_password">Change Password</string>
+
+    <string name="title_staff_management">Quản lí nhân viên</string>
+    <string name="title_staff_detail">Thông tin nhân viên</string>
+
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="btn_detail">Chi tiết</string>
+    <string name="tv_fullname">Họ và tên</string>
+    <string name="tv_dateofbirth">Ngày sinh</string>
+    <string name="tv_cccd">Căn cước công dân</string>
+    <string name="tv_phone_number">Số điện thoại</string>
+    <string name="tv_address">Địa chỉ</string>
+    <string name="tv_username">Username</string>
+    <string name="tv_password">Password</string>
+    <string name="staff_nav">Trang nhân viên</string>
+
+</resources>

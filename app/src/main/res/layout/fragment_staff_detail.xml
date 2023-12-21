@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_staff_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_staff_detail"
+            android:textSize="20sp"
+            android:layout_marginTop="3dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_fullname"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Fullname"
+            android:focusable="false"
+            android:clickable="false"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_dateofbirth"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_date_of_birth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Date of birth"
+            android:focusable="false"
+            android:clickable="false"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_cccd"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_staff_cccd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Cccd"
+            android:focusable="false"
+            android:clickable="false"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_phone_number"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_staff_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Phone number" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_address"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_staff_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Address"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_username"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_staff_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Username"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_password"
+            android:layout_marginTop="10dp" />
+        <EditText
+            android:id="@+id/edt_staff_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Password"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_update_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sửa thông tin"
+        android:layout_below="@+id/layout_staff_detail"
+        android:layout_marginTop="10dp"
+        
+        />
+    <Button
+        android:id="@+id/btn_delete_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xóa nhân viên"
+        android:layout_below="@+id/btn_update_staff"
+        android:layout_marginTop="10dp"
+        />
+</RelativeLayout>

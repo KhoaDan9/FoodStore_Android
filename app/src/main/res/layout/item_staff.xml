@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_toStartOf="@+id/btn_staff_detail"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:id="@+id/tv_staff_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Username"
+            android:layout_marginTop="3dp"/>
+        <TextView
+            android:id="@+id/tv_staff_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Password"
+            android:layout_marginTop="3dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_staff_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="@string/btn_detail"/>
+
+</RelativeLayout>
