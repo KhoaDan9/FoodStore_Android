@@ -67,22 +67,22 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
         }
-//        else {
-//            Staff staff = FoodStoreDatabase.getInstance(this).staffDAO().getStaffbyUsername(username);
-//            if (!staff.getPassword().equals(password) )
-//            {
-//                Toast.makeText(this, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-//            else {
-//                Intent intent = new Intent(LoginActivity.this, StaffActivity.class);
-//                startActivity(intent);
-//                Bundle bundle = new Bundle();
-//                bundle.putParcelable("staff", staff);
-//                intent.putExtras(bundle);
-//                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-//            }
-//        }
+        else {
+            Staff staff = FoodStoreDatabase.getInstance(this).staffDAO().getStaffbyUsername(username);
+            if (!staff.getPassword().equals(password) )
+            {
+                Toast.makeText(this, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            else {
+                Intent intent = new Intent(LoginActivity.this, StaffActivity.class);
+                startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("staff", staff);
+                intent.putExtras(bundle);
+                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
     public void hideSoftKeyBoard() {
         try {

@@ -41,5 +41,8 @@
     <string name="tv_username">Username</string>
     <string name="tv_password">Password</string>
     <string name="staff_nav">Trang nhân viên</string>
+    <string name="order_food">Đặt đồ ăn</string>
+    <string name="order_detail">Thông tin đơn hàng</string>
+    <string name="staff_detail">Thông tin nhân viên</string>
 
 </resources>
