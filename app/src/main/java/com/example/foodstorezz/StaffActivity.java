@@ -12,9 +12,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.foodstorezz.fragment.AddStaffFragment;
-import com.example.foodstorezz.fragment.HomeFragment;
-import com.example.foodstorezz.fragment.StaffManagementFragment;
+import com.example.foodstorezz.fragment.admin.AddStaffFragment;
+import com.example.foodstorezz.fragment.admin.MenuFragment;
+import com.example.foodstorezz.fragment.admin.StaffManagementFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class StaffActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,7 +42,7 @@ public class StaffActivity extends AppCompatActivity implements NavigationView.O
         NavigationView navigationView = findViewById(R.id.navigation_view_staff);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(new HomeFragment());
+        replaceFragment(new MenuFragment());
         navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
     }
 
@@ -57,7 +57,7 @@ public class StaffActivity extends AppCompatActivity implements NavigationView.O
         int id = item.getItemId();
         if(id == R.id.nav_home){
             if(mCurrentFragment != FRAGMENT_HOME){
-                replaceFragment(new HomeFragment());
+                replaceFragment(new MenuFragment());
                 mCurrentFragment = FRAGMENT_HOME;
             }
         }

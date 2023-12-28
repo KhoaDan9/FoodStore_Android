@@ -5,8 +5,10 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import  androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
-@Database(entities = {User.class, Staff.class}, version = 1)
+@Database(entities = {User.class, Staff.class, Bill.class, Product.class}, version = 1)
+@TypeConverters({Converters.class})
 public abstract class FoodStoreDatabase extends RoomDatabase{
     public static final String DATABASE_NAME = "FoodStore.db";
 
@@ -21,4 +23,6 @@ public abstract class FoodStoreDatabase extends RoomDatabase{
     }
     public abstract UserDAO userDAO();
     public abstract StaffDAO staffDAO();
+    public abstract ProductDAO productDAO();
+
 }

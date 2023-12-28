@@ -44,5 +44,15 @@
     <string name="order_food">Đặt đồ ăn</string>
     <string name="order_detail">Thông tin đơn hàng</string>
     <string name="staff_detail">Thông tin nhân viên</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_product">Thêm sản phẩm</string>
+    <string name="product_name">Tên sản phẩm</string>
+    <string name="product_type">Thể loại</string>
+    <string name="product_quantity">Số lượng</string>
+    <string name="product_costprice">Giá nhập</string>
+    <string name="product_price">Giá bán</string>
+    <string name="product_img">Ảnh sản phẩm</string>
+    <string name="img_src">Đường dẫn ảnh</string>
 
 </resources>

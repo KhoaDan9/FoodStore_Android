@@ -1,4 +1,4 @@
-package com.example.foodstorezz.fragment;
+package com.example.foodstorezz.fragment.admin;
 
 import android.content.Context;
 import android.os.Bundle;

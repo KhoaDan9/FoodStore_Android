@@ -12,20 +12,20 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.foodstorezz.fragment.AddStaffFragment;
-import com.example.foodstorezz.fragment.HomeFragment;
-import com.example.foodstorezz.fragment.StaffManagementFragment;
+import com.example.foodstorezz.fragment.admin.AddStaffFragment;
+import com.example.foodstorezz.fragment.admin.MenuFragment;
+import com.example.foodstorezz.fragment.admin.StaffManagementFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
 
-    private static final int FRAGMENT_HOME = 0;
+    private static final int FRAGMENT_MENU = 0;
     private static final int FRAGMENT_ADD_STAFF = 1;
     private static final int FRAGMENT_STAFF_MANAGEMENT = 2;
 
-    private int mCurrentFragment = FRAGMENT_HOME;
+    private int mCurrentFragment = FRAGMENT_MENU;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +44,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(new HomeFragment());
-        navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+        replaceFragment(new MenuFragment());
+        navigationView.getMenu().findItem(R.id.nav_menu).setChecked(true);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.nav_home){
-            if(mCurrentFragment != FRAGMENT_HOME){
-                replaceFragment(new HomeFragment());
-                mCurrentFragment = FRAGMENT_HOME;
+        if(id == R.id.nav_menu){
+            if(mCurrentFragment != FRAGMENT_MENU){
+                replaceFragment(new MenuFragment());
+                mCurrentFragment = FRAGMENT_MENU;
             }
         }
         else if (id == R.id.nav_add_staff){

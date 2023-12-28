@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     public void loginClick() {
         String username = edtUsername.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
+
         if(TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Yêu cầu nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return;
