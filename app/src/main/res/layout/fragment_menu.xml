@@ -19,10 +19,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/btn_add_product"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Day la trang melu"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/rcv_menu"/>
+
 </RelativeLayout>

@@ -2,6 +2,8 @@ package com.example.foodstorezz.fragment.admin;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -82,12 +84,18 @@ public class AddProductFragment extends Fragment {
     );
     private byte[] convertUriToByteArray(Uri uri) throws IOException {
         InputStream inputStream = requireContext().getContentResolver().openInputStream(uri);
+
+        Bitmap bitmap = ((BitmapDrawable) ivShowImg.getDrawable()).getBitmap();
+
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+
+        byte[] imageInByte = byteArrayOutputStream.toByteArray();
         int bytesRead;
 
-        while ((bytesRead = inputStream.read(buffer)) != -1) {
-            byteArrayOutputStream.write(buffer, 0, bytesRead);
+        while ((bytesRead = inputStream.read(imageInByte)) != -1) {
+            byteArrayOutputStream.write(imageInByte, 0, bytesRead);
         }
 
         return byteArrayOutputStream.toByteArray();

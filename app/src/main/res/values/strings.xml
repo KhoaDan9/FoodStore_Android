@@ -50,7 +50,7 @@
     <string name="product_name">Tên sản phẩm</string>
     <string name="product_type">Thể loại</string>
     <string name="product_quantity">Số lượng</string>
-    <string name="product_costprice">Giá nhập</string>
+    <string name="product_show_price">Đơn giá</string>
     <string name="product_price">Giá bán</string>
     <string name="product_img">Ảnh sản phẩm</string>
     <string name="img_src">Đường dẫn ảnh</string>
