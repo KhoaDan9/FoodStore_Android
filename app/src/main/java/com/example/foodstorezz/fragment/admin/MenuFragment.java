@@ -34,16 +34,11 @@ public class MenuFragment extends Fragment {
         initUi(view);
 
         productAdapter = new ProductAdapter();
-        mListProduct = new ArrayList<>();
 
         loadData();
 
         RecyclerView.LayoutManager linearLayoutManager = new GridLayoutManager(requireContext(),2);
         rcvProduct.setLayoutManager(linearLayoutManager);
-
-
-
-        productAdapter.setData(mListProduct);
         rcvProduct.setAdapter(productAdapter);
 
         btnAddProduct.setOnClickListener(new View.OnClickListener() {

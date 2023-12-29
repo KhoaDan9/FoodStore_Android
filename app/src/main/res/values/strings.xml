@@ -18,14 +18,10 @@
 
 
     <string name="nav_home">Home</string>
-    <string name="nav_favorite">Favorite</string>
-    <string name="nav_history">History</string>
     <string name="nav_menu">Thực đơn</string>
     <string name="nav_add_staff">Thêm nhân viên</string>
     <string name="nav_staff_management">Quản lý nhân viên</string>
-    <string name="nav_account">Account</string>
-    <string name="nav_my_profile">My Profile</string>
-    <string name="nav_change_password">Change Password</string>
+    <string name="nav_bill">Quản lý hóa đơn</string>
 
     <string name="title_staff_management">Quản lí nhân viên</string>
     <string name="title_staff_detail">Thông tin nhân viên</string>

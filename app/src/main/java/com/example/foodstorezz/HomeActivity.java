@@ -24,6 +24,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private static final int FRAGMENT_MENU = 0;
     private static final int FRAGMENT_ADD_STAFF = 1;
     private static final int FRAGMENT_STAFF_MANAGEMENT = 2;
+    private static final int FRAGMENT_BILL = 3;
+
 
     private int mCurrentFragment = FRAGMENT_MENU;
 
@@ -67,6 +69,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             if(mCurrentFragment != FRAGMENT_STAFF_MANAGEMENT){
                 replaceFragment(new StaffManagementFragment());
                 mCurrentFragment = FRAGMENT_STAFF_MANAGEMENT;
+            }
+        }
+        else if (id == R.id.nav_bill){
+            if(mCurrentFragment != FRAGMENT_BILL){
+                replaceFragment(new StaffManagementFragment());
+                mCurrentFragment = FRAGMENT_BILL;
             }
         }
 

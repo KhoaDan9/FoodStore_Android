@@ -39,20 +39,6 @@ public class AddStaffFragment extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        initUi();
-//
-//        btnAddStaff.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                addStaff();
-//            }
-//        });
-//
-//    }
-
     public void addStaff() {
         String fullname = edtFullname.getText().toString().trim();
         String dateOfBirth = edtDateOfBirth.getText().toString().trim();

@@ -10,20 +10,14 @@
             android:title="@string/nav_staff_management"
             android:icon="@drawable/ic_management_staff"/>
 
+        <item android:id="@+id/nav_add_staff"
+            android:title="@string/nav_add_staff"
+            android:icon="@drawable/ic_add_user"/>
+
+        <item android:id="@+id/nav_bill"
+            android:title="@string/nav_bill"
+            android:icon="@drawable/ic_order_detail"/>
     </group>
 
-    <item android:title="@string/nav_account">
-        <menu>
-            <item android:id="@+id/nav_my_profile"
-                android:title="@string/nav_my_profile"
-                android:icon="@drawable/ic_my_profile"/>
 
-            <item android:id="@+id/nav_change_password"
-                android:title="@string/nav_change_password"
-                android:icon="@drawable/ic_change_password"/>
-            <item android:id="@+id/nav_add_staff"
-                android:title="@string/nav_add_staff"
-                android:icon="@drawable/ic_add_user"/>
-        </menu>
-    </item>
 </menu>

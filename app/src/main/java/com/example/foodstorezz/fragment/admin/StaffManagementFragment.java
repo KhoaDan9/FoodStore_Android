@@ -35,16 +35,12 @@ public class StaffManagementFragment extends Fragment {
             public void getDetailStaff(Staff staff) {
                 clickDetailStaff(staff);
             }
-
         });
-        mListStaff = new ArrayList<>();
 
         loadData();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
         rcvStaff.setLayoutManager(linearLayoutManager);
-
-        staffAdapter.setData(mListStaff);
         rcvStaff.setAdapter(staffAdapter);
 
         return view;

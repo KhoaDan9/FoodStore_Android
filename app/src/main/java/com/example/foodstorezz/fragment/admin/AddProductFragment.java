@@ -56,7 +56,6 @@ public class AddProductFragment extends Fragment {
             }
         });
 
-
         return view;
     }
 

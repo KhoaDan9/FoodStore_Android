@@ -70,7 +70,6 @@ public class StaffDetailFragment extends Fragment {
         edtPhoneNumber.setText(staff.getPhonenumber());
         edtUsername.setText(staff.getUsername());
         edtPassword.setText(staff.getPassword());
-
     }
 
     public void editStaff() {
@@ -78,7 +77,6 @@ public class StaffDetailFragment extends Fragment {
         String phonenumber = edtPhoneNumber.getText().toString().trim();
         String username = edtUsername.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
-
 
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)
                 || TextUtils.isEmpty(address) || TextUtils.isEmpty(phonenumber)) {
@@ -98,7 +96,6 @@ public class StaffDetailFragment extends Fragment {
                     .replace(R.id.content_frame, staffManagementFragment)
                     .addToBackStack(null)  // (optional) cho phép quay lại FragmentA nếu cần
                     .commit();
-
         }
     }
 
