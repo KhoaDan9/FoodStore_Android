@@ -13,18 +13,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.foodstorezz.fragment.admin.AddStaffFragment;
-import com.example.foodstorezz.fragment.admin.MenuFragment;
 import com.example.foodstorezz.fragment.admin.StaffManagementFragment;
+import com.example.foodstorezz.fragment.staff.MenuStaffFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class StaffActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
 
-    private static final int FRAGMENT_HOME = 0;
-    private static final int FRAGMENT_ADD_STAFF = 1;
-    private static final int FRAGMENT_STAFF_MANAGEMENT = 2;
+    private static final int FRAGMENT_MENU = 0;
+    private static final int FRAGMENT_BILL = 1;
+    private static final int FRAGMENT_DETAIL = 2;
 
-    private int mCurrentFragment = FRAGMENT_HOME;
+    private int mCurrentFragment = FRAGMENT_MENU;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +42,8 @@ public class StaffActivity extends AppCompatActivity implements NavigationView.O
         NavigationView navigationView = findViewById(R.id.navigation_view_staff);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(new MenuFragment());
-        navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
+        replaceFragment(new MenuStaffFragment());
+        navigationView.getMenu().findItem(R.id.nav_menu_staff).setChecked(true);
     }
 
     private void replaceFragment(Fragment fragment){
@@ -55,22 +55,22 @@ public class StaffActivity extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.nav_home){
-            if(mCurrentFragment != FRAGMENT_HOME){
-                replaceFragment(new MenuFragment());
-                mCurrentFragment = FRAGMENT_HOME;
+        if(id == R.id.nav_menu_staff){
+            if(mCurrentFragment != FRAGMENT_MENU){
+                replaceFragment(new MenuStaffFragment());
+                mCurrentFragment = FRAGMENT_MENU;
             }
         }
-        else if (id == R.id.nav_add_staff){
-            if(mCurrentFragment != FRAGMENT_ADD_STAFF){
+        else if (id == R.id.nav_bill_staff){
+            if(mCurrentFragment != FRAGMENT_BILL){
                 replaceFragment(new AddStaffFragment());
-                mCurrentFragment = FRAGMENT_ADD_STAFF;
+                mCurrentFragment = FRAGMENT_BILL;
             }
         }
-        else if (id == R.id.nav_staff_management){
-            if(mCurrentFragment != FRAGMENT_STAFF_MANAGEMENT){
+        else if (id == R.id.nav_detail_staff){
+            if(mCurrentFragment != FRAGMENT_DETAIL){
                 replaceFragment(new StaffManagementFragment());
-                mCurrentFragment = FRAGMENT_STAFF_MANAGEMENT;
+                mCurrentFragment = FRAGMENT_DETAIL;
             }
         }
 

@@ -8,6 +8,7 @@
     <string name="login_btn">Đăng nhập</string>
     <string name="shop_admin">Shop admin</string>
     <string name="chao_xin_xin_chao">Chao xin xin chao</string>
+    <string name="xin_chao_chao_xin">Xin chao chao xin</string>
     <string name="add_staff">Thêm nhân viên</string>
     <string name="staff_name">Họ và tên</string>
     <string name="staff_date_of_birth">Năm sinh</string>

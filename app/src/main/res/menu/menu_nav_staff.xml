@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_home"
+        <item android:id="@+id/nav_menu_staff"
             android:title="@string/order_food"
             android:icon="@drawable/ic_order_food"/>
 
-        <item android:id="@+id/nav_history"
+        <item android:id="@+id/nav_bill_staff"
             android:title="@string/order_detail"
             android:icon="@drawable/ic_order_detail"/>
 
-        <item android:id="@+id/nav_staff_management"
+        <item android:id="@+id/nav_detail_staff"
             android:title="@string/staff_detail"
             android:icon="@drawable/ic_my_profile"/>
 

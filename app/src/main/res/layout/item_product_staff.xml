@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="10dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:id="@+id/layout_product"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_product_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/ic_menu"
+            />
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/iv_product_img"
+            android:text="@string/product_name"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_product_name"
+            android:layout_marginTop="10dp"
+            android:layout_alignLeft="@id/tv_product_name"
+            android:drawablePadding="2dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/product_show_price"/>
+
+
+        <ImageView
+            android:id="@+id/iv_sub_quantity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tv_product_price"
+            android:src="@drawable/ic_subtract"
+            android:layout_marginLeft="5dp"
+            android:padding="13dp"
+            />
+
+        <EditText
+            android:id="@+id/edt_quantity"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tv_product_price"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/iv_sub_quantity"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="0"
+            android:textSize="14sp" />
+        <ImageView
+            android:id="@+id/iv_plus_quantity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="@string/xin_chao_chao_xin"
+            android:layout_below="@id/tv_product_price"
+            android:layout_toRightOf="@+id/edt_quantity"
+            android:padding="13dp"
+            android:src="@drawable/ic_add"/>
+        <Button
+            android:id="@+id/btn_add_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Thêm món"
+            android:textSize="14dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/iv_plus_quantity"
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
