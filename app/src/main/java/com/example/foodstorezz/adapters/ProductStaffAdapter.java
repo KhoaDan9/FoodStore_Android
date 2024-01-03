@@ -2,6 +2,7 @@ package com.example.foodstorezz.adapters;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +12,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodstorezz.R;
 import com.example.foodstorezz.database.Product;
+import com.example.foodstorezz.model.Cart;
 
 import java.util.List;
 
 public class ProductStaffAdapter extends RecyclerView.Adapter<ProductStaffAdapter.ProductStaffViewHolder>{
     private List<Product> mListProduct;
+    private Cart cart = new Cart();
+
     public void setData(List<Product> list) {
         this.mListProduct = list;
         notifyDataSetChanged();
@@ -38,12 +43,37 @@ public class ProductStaffAdapter extends RecyclerView.Adapter<ProductStaffAdapte
             return;
 
         holder.tvName.setText(product.getName());
-        holder.tvPrice.setText(String.valueOf(product.getPrice()) + " VNĐ");
+        holder.tvPrice.setText(String.valueOf((int)product.getPrice()) + " VNĐ");
+
 
         byte[] byteArray = product.getImageData();
         Bitmap bmp = BitmapFactory.decodeByteArray(byteArray,0, byteArray.length);
         holder.imgProduct.setImageBitmap(bmp);
 
+        holder.btnAddMenu.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View v) {
+                int numBuy = Integer.parseInt(holder.edtQuantity.getText().toString());
+                addToCart(product, numBuy);
+            }
+        });
+
+        holder.imgPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.edtQuantity.setText(String.valueOf(Integer.parseInt(holder.edtQuantity.getText().toString())+1));
+            }
+        });
+
+        holder.imgSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int numBuy = Integer.parseInt(holder.edtQuantity.getText().toString());
+                if(numBuy > 1)
+                    holder.edtQuantity.setText(String.valueOf(numBuy - 1));
+            }
+        });
     }
 
     @Override
@@ -53,6 +83,12 @@ public class ProductStaffAdapter extends RecyclerView.Adapter<ProductStaffAdapte
         }
         return 0;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void addToCart(Product product, int numBuy) {
+        cart.addToCart(product, numBuy);
+    }
+
 
     public class ProductStaffViewHolder extends RecyclerView.ViewHolder {
 

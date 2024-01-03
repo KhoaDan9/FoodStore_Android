@@ -35,7 +35,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         if (product == null) {
             return;
         }
-
+        String name = holder.tvName.getText().toString().trim();
+        if (name.length() > 15)
+            holder.tvName.setTextSize(10);
         holder.tvName.setText(product.getName());
         holder.tvPrice.setText(String.valueOf((int)product.getPrice()) + " VNĐ");
 
@@ -61,7 +63,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
-
             imgProduct = itemView.findViewById(R.id.iv_product_img);
             tvName = itemView.findViewById(R.id.tv_product_name);
             tvPrice = itemView.findViewById(R.id.tv_product_price);

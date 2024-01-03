@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ import com.example.foodstorezz.R;
 import com.example.foodstorezz.adapters.ProductStaffAdapter;
 import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Product;
+import com.example.foodstorezz.model.Cart;
 
 import java.util.List;
 
@@ -33,8 +35,8 @@ public class MenuStaffFragment extends Fragment {
 
         loadData();
 
-        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
-        rcvMenuStaff.setLayoutManager(linearLayoutManager);
+        RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(requireContext(),2);
+        rcvMenuStaff.setLayoutManager(gridLayoutManager);
         rcvMenuStaff.setAdapter(productStaffAdapter);
 
         return view;
@@ -47,4 +49,5 @@ public class MenuStaffFragment extends Fragment {
     private void initUi(View view){
         rcvMenuStaff = view.findViewById(R.id.rcv_menu_staff);
     }
+
 }

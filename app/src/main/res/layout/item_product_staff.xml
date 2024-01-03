@@ -13,7 +13,7 @@
     <RelativeLayout
         android:id="@+id/layout_product"
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="380dp"
         >
 
         <ImageView
@@ -28,17 +28,19 @@
             android:padding="5dp"
             android:src="@drawable/ic_menu"
             />
+
         <TextView
             android:id="@+id/tv_product_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/iv_product_img"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:text="@string/product_name"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tv_product_price"
             android:layout_width="match_parent"
@@ -72,7 +74,7 @@
             android:background="@android:color/transparent"
             android:gravity="center"
             android:inputType="number"
-            android:text="0"
+            android:text="1"
             android:textSize="14sp" />
         <ImageView
             android:id="@+id/iv_plus_quantity"

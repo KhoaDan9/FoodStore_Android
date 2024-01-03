@@ -24,11 +24,10 @@ public class Cart {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void addCart (Product product){
+    public void addToCart (Product product, int numBuy){
         Integer quantity = cartList.getOrDefault(product.getId(), 0);
         if (quantity >= product.getQuantity()) return;
-        cartList.put(product.getId(), quantity + 1);
-        totalPrice += product.getPrice();
+        cartList.put(product.getId(), numBuy);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
