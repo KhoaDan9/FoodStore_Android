@@ -9,42 +9,42 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodstorezz.R;
-import com.example.foodstorezz.adapters.ProductStaffAdapter;
+import com.example.foodstorezz.adapters.CartAdapter;
 import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Product;
 import com.example.foodstorezz.model.Cart;
 
 import java.util.List;
 
-public class MenuStaffFragment extends Fragment {
-    private RecyclerView rcvMenuStaff;
-    private Button btnGoToCart;
-    private ProductStaffAdapter productStaffAdapter;
+public class CartStaffFragment extends Fragment {
+    private Cart cart = new Cart();
     private List<Product> mListProduct;
-
+    private RecyclerView rcvCart;
+    private CartAdapter cartAdapter;
+    private Button btnBackToMenu;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_menu_staff, container, false);
+        View view = inflater.inflate(R.layout.fragment_cart,container,false);
+
         initUi(view);
 
-        productStaffAdapter = new ProductStaffAdapter();
+        cartAdapter = new CartAdapter();
 
         loadData();
 
-        RecyclerView.LayoutManager gridLayoutManager = new GridLayoutManager(requireContext(),2);
-        rcvMenuStaff.setLayoutManager(gridLayoutManager);
-        rcvMenuStaff.setAdapter(productStaffAdapter);
+        RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
+        rcvCart.setLayoutManager(linearLayoutManager);
+        rcvCart.setAdapter(cartAdapter);
 
-        btnGoToCart.setOnClickListener(new View.OnClickListener() {
+        btnBackToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToCart();
+                backToMenu();
             }
         });
 
@@ -53,21 +53,23 @@ public class MenuStaffFragment extends Fragment {
 
     private void loadData(){
         mListProduct = FoodStoreDatabase.getInstance(requireContext()).productDAO().getAllProduct();
-        productStaffAdapter.setData(mListProduct);
-    }
-    private void initUi(View view){
-        rcvMenuStaff = view.findViewById(R.id.rcv_menu_staff);
-        btnGoToCart = view.findViewById(R.id.btn_go_to_cart);
+        cartAdapter.setData(mListProduct);
     }
 
-    private void goToCart() {
+    private void initUi(View view){
+        rcvCart = view.findViewById(R.id.rcv_cart);
+        btnBackToMenu = view.findViewById(R.id.btn_back_to_menu_staff);
+    }
+
+    private void backToMenu(){
         Bundle bundle = new Bundle();
 
-        CartStaffFragment cartStaffFragment = new CartStaffFragment();
-        cartStaffFragment.setArguments(bundle);
+        MenuStaffFragment menuStaffFragment = new MenuStaffFragment();
+        menuStaffFragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_frame_staff, cartStaffFragment)
+                .replace(R.id.content_frame_staff, menuStaffFragment)
                 .addToBackStack(null)
                 .commit();
     }
+
 }

@@ -4,6 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Product;
 
 import java.util.HashMap;
@@ -36,5 +37,10 @@ public class Cart {
         if (quantity <=0) return;
         cartList.put(p.getId(), quantity - 1);
         totalPrice -= p.getPrice();
+    }
+
+    public int getProductIdByPosition(Integer position){
+        keys = cartList.keySet().toArray();
+        return (int) keys[position];
     }
 }
