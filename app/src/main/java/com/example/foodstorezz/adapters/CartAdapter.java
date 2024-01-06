@@ -130,7 +130,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     private void deleteCart(int productId, int totalPrice){
-        cart.removeProduct(productId, totalPrice);
-//        notifyDataSetChanged();
+        cart.removeCart(productId, totalPrice);
+        listener.loadTotalBill();
     }
 }

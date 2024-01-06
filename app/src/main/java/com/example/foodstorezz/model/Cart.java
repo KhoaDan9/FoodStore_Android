@@ -25,17 +25,11 @@ public class Cart {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void addToCart (Product product, int numBuy){
-        Integer quantity = cartList.getOrDefault(product.getId(), 0);
-        if (quantity >= product.getQuantity()) return;
+    public void addToCart (Product product, int numBuy2){
+        int numBuy = cartList.getOrDefault(product.getId(), 0);
+        numBuy += numBuy2;
+        totalBill += numBuy * product.getPrice();
         cartList.put(product.getId(), numBuy);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public void removeCart(Product p){
-        Integer quantity = cartList.getOrDefault(p.getId(), 0);
-        if (quantity <=0) return;
-        cartList.put(p.getId(), quantity - 1);
     }
 
     public int getProductIdByPosition(Integer position){
@@ -48,7 +42,7 @@ public class Cart {
         return cartList.get(keys[position]);
     }
 
-    public void removeProduct(int key, int totalPrice){
+    public void removeCart(int key, int totalPrice){
         totalBill -= totalPrice;
         cartList.remove(key);
     }
