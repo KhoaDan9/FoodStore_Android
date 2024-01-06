@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,12 +21,13 @@ import com.example.foodstorezz.model.Cart;
 
 import java.util.List;
 
-public class CartStaffFragment extends Fragment {
+public class CartStaffFragment extends Fragment implements CartAdapter.EventListener{
     private Cart cart = new Cart();
     private List<Product> mListProduct;
     private RecyclerView rcvCart;
     private CartAdapter cartAdapter;
     private Button btnBackToMenu;
+    private TextView tvTotalBill;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,13 +35,14 @@ public class CartStaffFragment extends Fragment {
 
         initUi(view);
 
-        cartAdapter = new CartAdapter();
+        cartAdapter = new CartAdapter(requireContext(), this);
 
         loadData();
 
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
         rcvCart.setLayoutManager(linearLayoutManager);
         rcvCart.setAdapter(cartAdapter);
+
 
         btnBackToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +51,7 @@ public class CartStaffFragment extends Fragment {
             }
         });
 
+        loadTotalBill();
         return view;
     }
 
@@ -56,9 +60,13 @@ public class CartStaffFragment extends Fragment {
         cartAdapter.setData(mListProduct);
     }
 
+    public void loadTotalBill(){
+        tvTotalBill.setText(String.valueOf(this.cart.getTotalBill()) + " VNĐ");
+    }
     private void initUi(View view){
         rcvCart = view.findViewById(R.id.rcv_cart);
         btnBackToMenu = view.findViewById(R.id.btn_back_to_menu_staff);
+        tvTotalBill = view.findViewById(R.id.tv_cart_total_bill2);
     }
 
     private void backToMenu(){

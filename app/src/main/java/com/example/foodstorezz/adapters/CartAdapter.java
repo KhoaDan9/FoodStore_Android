@@ -18,11 +18,21 @@ import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Product;
 import com.example.foodstorezz.model.Cart;
 
+import java.util.EventListener;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
     private List<Product> mListProduct;
     private Cart cart = new Cart();
+    public Context mContext;
+    EventListener listener;
+    public interface EventListener {
+        void loadTotalBill();
+    }
+    public CartAdapter(Context context, EventListener listener){
+        this.mContext = context;
+        this.listener = listener;
+    }
     public void setData(List<Product> list){
         this.mListProduct = list;
         notifyDataSetChanged();
@@ -37,18 +47,60 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         int productId = cart.getProductIdByPosition(position);
-        for (Product product : mListProduct){
-            if (product.getId() == productId){
-                holder.tvName.setText(product.getName());
-                holder.tvPrice.setText(String.valueOf((int) product.getPrice() + " VNĐ"));
-
-                byte[] byteArray = product.getImageData();
-                Bitmap bmp = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
-                holder.imgCart.setImageBitmap(bmp);
-
-
+        int numBuy = cart.getQuantityByPosition(position);
+        Product product = null;
+        for (Product p : mListProduct){
+            if (p.getId() == productId){
+               product = p;
             }
         }
+
+        int price = (int) product.getPrice();
+        int totalPrice = numBuy * price;
+
+        holder.tvName.setText(product.getName());
+        holder.tvPrice.setText(String.valueOf(price));
+
+        byte[] byteArray = product.getImageData();
+        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+        holder.imgCart.setImageBitmap(bmp);
+
+        holder.edtQuantity.setText(String.valueOf(numBuy));
+        holder.tvTotalPrice.setText(String.valueOf( price * numBuy));
+
+        holder.imgSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (numBuy == 1) {
+                    deleteCart(productId, totalPrice);
+                }
+                else {
+                    cart.subtractCart(productId, price);
+                }
+                notifyDataSetChanged();
+
+            }
+        });
+
+        holder.imgPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cart.plusCart(productId, price);
+                notifyDataSetChanged();
+            }
+        });
+
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteCart(productId, totalPrice);
+                notifyDataSetChanged();
+            }
+
+        });
+
+        listener.loadTotalBill();
+
     }
 
     @Override
@@ -57,11 +109,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     public class CartViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgCart, imgPlus, imgSubtract, imgDelete;
+        private ImageView imgCart, imgPlus, imgSubtract, imgDelete;
 
-        TextView tvName, tvPrice, tvTotalPrice;
+        private TextView tvName, tvPrice, tvTotalPrice;
 
-        EditText edtQuantity;
+        private EditText edtQuantity;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,5 +127,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             imgDelete = itemView.findViewById(R.id.iv_delete_cart);
             edtQuantity = itemView.findViewById(R.id.edt_quantity_cart);
         }
+    }
+
+    private void deleteCart(int productId, int totalPrice){
+        cart.removeProduct(productId, totalPrice);
+//        notifyDataSetChanged();
     }
 }

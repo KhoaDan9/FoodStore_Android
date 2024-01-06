@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đơn giá: "
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tv_name_cart"
         android:layout_toRightOf="@id/iv_img_cart"/>
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50000"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tv_name_cart"
         android:layout_toRightOf="@id/tv_price1_cart"/>
     <ImageView
@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thành tiền: "
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tv_price1_cart"
         android:layout_toRightOf="@id/iv_img_cart"
         />
@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="99999"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_below="@+id/tv_price1_cart"
         android:layout_toRightOf="@id/tv_total_price1"
         />

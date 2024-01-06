@@ -14,14 +14,14 @@ public class Cart {
     public static Map<Integer, Integer> cartList = new HashMap<>();
     private Object keys[];
 
-    private static float totalPrice;
+    private static int totalBill;
 
-    public static float getTotalPrice() {
-        return totalPrice;
+    public static int getTotalBill() {
+        return totalBill;
     }
 
-    public static void setTotalPrice(float totalPrice) {
-        Cart.totalPrice = totalPrice;
+    public static void setTotalBill(int totalBill) {
+        Cart.totalBill = totalBill;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -36,11 +36,31 @@ public class Cart {
         Integer quantity = cartList.getOrDefault(p.getId(), 0);
         if (quantity <=0) return;
         cartList.put(p.getId(), quantity - 1);
-        totalPrice -= p.getPrice();
     }
 
     public int getProductIdByPosition(Integer position){
         keys = cartList.keySet().toArray();
         return (int) keys[position];
+    }
+
+    public int getQuantityByPosition(Integer position){
+        keys = cartList.keySet().toArray();
+        return cartList.get(keys[position]);
+    }
+
+    public void removeProduct(int key, int totalPrice){
+        totalBill -= totalPrice;
+        cartList.remove(key);
+    }
+
+    public void plusCart(int productId, int price) {
+        int numBuy = cartList.get(productId);
+        totalBill += price;
+        cartList.put(productId, numBuy + 1);
+    }
+    public void subtractCart(int productId, int price) {
+        int numBuy = cartList.get(productId);
+        totalBill -= price;
+        cartList.put(productId, numBuy - 1);
     }
 }
