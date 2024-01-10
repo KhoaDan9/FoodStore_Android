@@ -8,15 +8,21 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Staff;
 import com.example.foodstorezz.database.StaffDAO;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class AddUserActivity extends AppCompatActivity {
     private EditText edtFullname, edtDateOfBirth, edtCccd, edtAddress, edtPhoneNumber, edtUsername, edtPassword;
     private Button btnAddStaff;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +67,7 @@ public class AddUserActivity extends AppCompatActivity {
         return;
 
     }
+
     private void initUi() {
         edtFullname = findViewById(R.id.edt_staff_fullname);
         edtDateOfBirth = findViewById(R.id.edt_date_of_birth);
@@ -70,5 +77,7 @@ public class AddUserActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.edt_staff_username);
         edtPassword = findViewById(R.id.edt_staff_password);
         btnAddStaff = findViewById(R.id.btn_add_staff);
+
+
     }
 }

@@ -19,9 +19,14 @@ import com.example.foodstorezz.R;
 import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Staff;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class AddStaffFragment extends Fragment {
     private EditText edtFullname, edtDateOfBirth, edtCccd, edtAddress, edtPhoneNumber, edtUsername, edtPassword;
     private Button btnAddStaff;
+    private TextView dateTextView;
 
     @Nullable
     @Override
@@ -71,5 +76,15 @@ public class AddStaffFragment extends Fragment {
         edtUsername = view.findViewById(R.id.edt_staff_username);
         edtPassword = view.findViewById(R.id.edt_staff_password);
         btnAddStaff = view.findViewById(R.id.btn_add_staff);
+        dateTextView = view.findViewById(R.id.tv_ngaytao);
+        // Lấy ngày hiện tại
+        Date currentDate = new Date();
+
+        // Định dạng ngày thành chuỗi
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        String formattedDate = dateFormat.format(currentDate);
+
+        // Đặt nội dung đã định dạng vào TextView
+        dateTextView.setText("Ngày hiện tại: " + formattedDate);
     }
 }

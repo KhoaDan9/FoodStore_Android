@@ -27,6 +27,16 @@ public class Staff implements Parcelable {
     private String dateofbirth;
     private String phonenumber;
     private String cccd;
+    private String ngaytao;
+
+
+    public String getNgaytao() {
+        return ngaytao;
+    }
+
+    public void setNgaytao(String ngaytao) {
+        this.ngaytao = ngaytao;
+    }
 
     public String getUsername() {
         return username;

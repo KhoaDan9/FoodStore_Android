@@ -89,7 +89,13 @@
         android:padding="20dp"
         android:textColorHint="#8D6E63"/>
 
+    <TextView
+        android:id="@+id/tv_ngaytao"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Ngày tạo"
 
+        />
     <Button
         android:id="@+id/btn_add_staff"
         android:layout_width="match_parent"
