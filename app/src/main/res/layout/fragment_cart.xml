@@ -34,4 +34,11 @@
         android:layout_toRightOf="@+id/tv_cart_total_bill1"
         android:layout_below="@+id/rcv_cart"
         />
+    <Button
+        android:id="@+id/btn_cart_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanh toán"
+        android:layout_below="@+id/tv_cart_total_bill2"
+        />
 </RelativeLayout>

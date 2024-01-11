@@ -1,6 +1,7 @@
 package com.example.foodstorezz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -18,6 +19,7 @@ import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Staff;
 import com.example.foodstorezz.database.User;
 import com.example.foodstorezz.database.UserDAO;
+import com.example.foodstorezz.model.StaffDetail;
 
 import java.util.List;
 
@@ -77,11 +79,9 @@ public class LoginActivity extends AppCompatActivity {
             }
             else {
                 Intent intent = new Intent(LoginActivity.this, StaffActivity.class);
-                startActivity(intent);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("staff", staff);
-                intent.putExtras(bundle);
+                StaffDetail.staff = staff;
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         }
     }

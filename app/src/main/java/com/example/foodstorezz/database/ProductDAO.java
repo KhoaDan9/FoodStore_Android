@@ -17,4 +17,5 @@ public interface ProductDAO {
 
     @Query("SELECT * FROM product")
     List<Product> getAllProduct();
+
 }

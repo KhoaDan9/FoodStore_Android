@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+    <Button
+        android:id="@+id/btn_back_to_menu_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trờ về trang menu"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hoàn thành đơn hàng số: "
+        android:textSize="16sp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/btn_back_to_menu_staff"
+        />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thời gian: "
+        android:textSize="16sp"
+        android:layout_below="@id/tv_detail"
+        android:paddingBottom="10dp"
+        />
+    <TextView
+        android:id="@+id/tv_time2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020/12/12"
+        android:layout_below="@id/tv_detail"
+        android:layout_toRightOf="@+id/tv_time"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/tv_bill_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:paddingBottom="10dp"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/tv_detail"
+        android:layout_below="@+id/btn_back_to_menu_staff" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_time"
+        />
+
+</RelativeLayout>

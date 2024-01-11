@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="5dp">
+    <ImageView
+        android:id="@+id/iv_img_bill"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_menu"
+        android:padding="5dp"
+        />
+    <TextView
+        android:id="@+id/tv_name_bill"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:text="Tên sản phẩm"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/iv_img_bill"/>
+    <TextView
+        android:id="@+id/tv_price1_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đơn giá: "
+        android:textSize="16sp"
+        android:layout_below="@+id/tv_name_bill"
+        android:layout_toRightOf="@id/iv_img_bill"/>
+    <TextView
+        android:id="@+id/tv_price2_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50000"
+        android:textSize="16sp"
+        android:layout_below="@+id/tv_name_bill"
+        android:layout_toRightOf="@id/tv_price1_bill"/>
+
+    <EditText
+        android:id="@+id/edt_quantity_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/tv_name_bill"
+        android:background="@android:color/transparent"
+        android:text="Số lượng"
+        android:focusable="false"
+        android:clickable="false"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/edt_quantity2_bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/edt_quantity_bill"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1"
+        android:focusable="false"
+        android:clickable="false"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_total_price1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thành tiền: "
+        android:textSize="16sp"
+        android:layout_below="@+id/tv_price1_bill"
+        android:layout_toRightOf="@id/iv_img_bill"
+        />
+    <TextView
+        android:id="@+id/tv_total_price2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="99999"
+        android:textSize="16sp"
+        android:layout_below="@+id/tv_price1_bill"
+        android:layout_toRightOf="@id/tv_total_price1"
+        />
+
+</RelativeLayout>
