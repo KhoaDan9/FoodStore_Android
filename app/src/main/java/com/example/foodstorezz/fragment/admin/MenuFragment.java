@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +18,13 @@ import com.example.foodstorezz.R;
 import com.example.foodstorezz.adapters.ProductAdapter;
 import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Product;
+import com.example.foodstorezz.model.ProductDetail;
+import com.example.foodstorezz.my_interface.IClickItemProductAdminListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuFragment extends Fragment {
-
     private Button btnAddProduct;
     private RecyclerView rcvProduct;
     private ProductAdapter productAdapter;
@@ -33,7 +35,12 @@ public class MenuFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
         initUi(view);
 
-        productAdapter = new ProductAdapter();
+        productAdapter = new ProductAdapter(new IClickItemProductAdminListener() {
+            @Override
+            public void onClickItemProductAdmin(Product product) {
+                itemProductOnClick(product);
+            }
+        });
 
         loadData();
 
@@ -44,7 +51,7 @@ public class MenuFragment extends Fragment {
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addProduct();
+                goToAddProduct();
             }
         });
 
@@ -61,14 +68,22 @@ public class MenuFragment extends Fragment {
         productAdapter.setData(mListProduct);
     }
 
-    public void addProduct() {
-        Bundle bundle = new Bundle();
-
+    public void goToAddProduct() {
         AddProductFragment addProductFragment = new AddProductFragment();
-        addProductFragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, addProductFragment)
-                .addToBackStack(null)  // (optional) cho phép quay lại FragmentA nếu cần
+                .addToBackStack(null)
                 .commit();
+    }
+
+    public void itemProductOnClick(Product product){
+        ProductDetailFragment productDetailFragment = new ProductDetailFragment();
+        ProductDetail.product = product;
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame, productDetailFragment)
+                .addToBackStack(null)
+                .commit();
+//        productDetailFragment.setData(product);
+
     }
 }
