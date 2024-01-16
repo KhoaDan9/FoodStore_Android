@@ -11,7 +11,7 @@
     <string name="xin_chao_chao_xin">Xin chao chao xin</string>
     <string name="add_staff">Thêm nhân viên</string>
     <string name="staff_name">Họ và tên</string>
-    <string name="staff_date_of_birth">Năm sinh</string>
+    <string name="staff_date_of_birth">Năm sinh: DD/MM/YYYY</string>
     <string name="staff_cccd">Căn cước công dân</string>
     <string name="staff_address">Địa chỉ</string>
     <string name="staff_phone_number">Số điện thoại</string>
