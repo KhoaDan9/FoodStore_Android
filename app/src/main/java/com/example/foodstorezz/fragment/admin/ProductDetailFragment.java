@@ -23,7 +23,7 @@ import com.example.foodstorezz.model.ProductDetail;
 public class ProductDetailFragment extends Fragment {
     private EditText edtName, edtType, edtQuantity, edtPrice, edtImgSrc;
     private ImageView ivShowImg;
-    private Button btnEditProduct;
+    private Button btnEditProduct, btnDeleteProduct;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,6 +41,13 @@ public class ProductDetailFragment extends Fragment {
             }
         });
 
+        btnDeleteProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnDeleteProductOnClick(editProduct);
+            }
+        });
+
         return view;
     }
 
@@ -53,6 +60,7 @@ public class ProductDetailFragment extends Fragment {
         ivShowImg = view.findViewById(R.id.iv_show_img_detail);
 
         btnEditProduct = view.findViewById(R.id.btn_edit_product);
+        btnDeleteProduct = view.findViewById(R.id.btn_delete_product);
     }
 
     private void setData(Product product){
@@ -73,5 +81,16 @@ public class ProductDetailFragment extends Fragment {
 
         FoodStoreDatabase.getInstance(requireContext()).productDAO().updateProduct(product);
         Toast.makeText(requireContext(), "Thay đổi thông tin sản phẩm thành công!",Toast.LENGTH_SHORT).show();
+    }
+
+    private void btnDeleteProductOnClick(Product product){
+        FoodStoreDatabase.getInstance(requireContext()).productDAO().deleteProduct(product);
+        Toast.makeText(requireContext(),"Xóa sản phẩm thành công!", Toast.LENGTH_SHORT).show();
+
+        MenuFragment menuFragment = new MenuFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame, menuFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

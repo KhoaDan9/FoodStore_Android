@@ -1,6 +1,7 @@
 package com.example.foodstorezz.database;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -14,6 +15,9 @@ public interface ProductDAO {
 
     @Update
     void updateProduct(Product product);
+
+    @Delete
+    void deleteProduct(Product product);
 
     @Query("SELECT * FROM product")
     List<Product> getAllProduct();
