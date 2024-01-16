@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class AddProductFragment extends Fragment {
-    private EditText edtName, edtType, edtQuantity, edtPrice, edtImgSrc;
+    private EditText edtName, edtType, edtQuantity, edtPrice;
     private ImageView ivShowImg;
     private Button btnAddProduct, btnSelectImg;
 
