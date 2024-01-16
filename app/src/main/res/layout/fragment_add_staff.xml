@@ -7,15 +7,20 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    tools:context=".AddUserActivity">
+    tools:context=".AddUserActivity"
+    android:background="@drawable/bgstaff"
+    >
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|top"
+        android:gravity="center"
         android:text="@string/add_staff"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="-40dp"
+        />
 
     <EditText
         android:id="@+id/edt_staff_fullname"
@@ -25,8 +30,9 @@
         android:ems="10"
         android:hint="@string/staff_name"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="18dp"
+        android:textColorHint="@color/green"
+        />
 
     <EditText
         android:id="@+id/edt_date_of_birth"
@@ -36,8 +42,9 @@
         android:hint="@string/staff_date_of_birth"
         android:importantForAutofill="no"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63" />
+        android:padding="18dp"
+        android:textColorHint="@color/green"
+        />
     <EditText
         android:id="@+id/edt_staff_cccd"
         android:layout_width="match_parent"
@@ -45,8 +52,8 @@
         android:ems="10"
         android:hint="@string/staff_cccd"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="18dp"
+        android:textColorHint="@color/green"/>
     <EditText
         android:id="@+id/edt_staff_address"
         android:layout_width="match_parent"
@@ -55,8 +62,8 @@
         android:ems="10"
         android:hint="@string/staff_address"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="18dp"
+        android:textColorHint="@color/green"/>
     <EditText
         android:id="@+id/edt_staff_phone_number"
         android:layout_width="match_parent"
@@ -65,8 +72,8 @@
         android:ems="10"
         android:hint="@string/staff_phone_number"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="18dp"
+        android:textColorHint="@color/green"/>
 
     <EditText
         android:id="@+id/edt_staff_username"
@@ -76,8 +83,8 @@
         android:ems="10"
         android:hint="@string/input_username"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="18dp"
+        android:textColorHint="@color/green"/>
     <EditText
         android:id="@+id/edt_staff_password"
         android:layout_width="match_parent"
@@ -86,16 +93,23 @@
         android:ems="10"
         android:hint="@string/input_password"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="18dp"
+        android:textColorHint="@color/green"/>
 
-
+    <TextView
+        android:id="@+id/tv_ngaytao"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:hint="Ngày tạo"
+        android:textColorHint="@color/green"
+        android:layout_marginLeft="10dp"
+        />
     <Button
         android:id="@+id/btn_add_staff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@color/design_default_color_primary"
+        android:backgroundTint="@color/orange"
         android:text="@string/add_staff_btn"
         />
 </LinearLayout>
