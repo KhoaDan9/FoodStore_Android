@@ -18,4 +18,6 @@ public interface ProductDAO {
     @Query("SELECT * FROM product")
     List<Product> getAllProduct();
 
+    @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%'")
+    List<Product> searchProduct(String name);
 }
