@@ -82,12 +82,7 @@ public class AddStaffFragment extends Fragment {
         else if (!isValidDateOfBirth(dateOfBirth)) {
            showToast("Định dạng ngày sinh không hợp lệ");
         }
-        else if (!isValidNationalID(cccd)) {
-            showToast("Định dạng căn cước công dân không thành công");
-        }
-        else if (!isValidAddress(address)) {
-            showToast("Định dạng địa chỉ không thành công");
-        }
+
         else if (password.isEmpty() || !isValidPassword(password)) {
             showToast("Vui lòng nhập mật khẩu hợp lệ");
             return;
@@ -126,12 +121,7 @@ public class AddStaffFragment extends Fragment {
     private boolean isValidDateOfBirth(String dateOfBirth) {
         return dateOfBirth.matches("\\d{2}/\\d{2}/\\d{4}");
     }
-    private boolean isValidAddress(String address) {
-        return address.length() > 20    ;
-    }
-    private boolean isValidNationalID(String cccd) {
-        return cccd.matches("\\d{12}");
-    }
+
     private boolean isValidPhoneNumber(String phoneNumber) {
         return phoneNumber.matches("\\d{10}");
     }
