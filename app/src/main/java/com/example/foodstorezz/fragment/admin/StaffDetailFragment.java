@@ -82,7 +82,8 @@ public class StaffDetailFragment extends Fragment {
                 || TextUtils.isEmpty(address) || TextUtils.isEmpty(phonenumber)) {
             showToast("Yêu cầu nhập đầy đủ thông tin");
             hideSoftKeyboard();
-        } else {
+        }
+        else {
             staff.setAddress(address);
             staff.setPhonenumber(phonenumber);
             staff.setUsername(username);
