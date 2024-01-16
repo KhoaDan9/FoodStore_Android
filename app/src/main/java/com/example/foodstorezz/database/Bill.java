@@ -7,17 +7,29 @@ import java.util.Date;
 
 @Entity(tableName = "bill")
 public class Bill {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private int staffId;
     private String staffName;
-    private Date date;
+    private String date;
+    private int totalBill;
 
-    public Bill(int id, int staffId, String staffName, Date date) {
-        this.id = id;
+    public Bill() {
+    }
+
+    public Bill(int staffId, String staffName, String date, int totalBill) {
         this.staffId = staffId;
         this.staffName = staffName;
         this.date = date;
+        this.totalBill = totalBill;
+    }
+
+    public int getTotalBill() {
+        return totalBill;
+    }
+
+    public void setTotalBill(int totalBill) {
+        this.totalBill = totalBill;
     }
 
     public int getStaffId() {
@@ -44,11 +56,11 @@ public class Bill {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,11 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodstorezz.R;
 import com.example.foodstorezz.database.Product;
+import com.example.foodstorezz.my_interface.IClickItemProductAdminListener;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
     private List<Product> mListProduct;
+    public IClickItemProductAdminListener iClickItemProductAdminListener;
+
+    public ProductAdapter(IClickItemProductAdminListener listener){
+        this.iClickItemProductAdminListener = listener;
+    }
     public void setData(List<Product> products) {
         this.mListProduct = products;
         notifyDataSetChanged();
@@ -47,6 +54,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         holder.imgProduct.setImageBitmap(bmp);
 
+        holder.item_product.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iClickItemProductAdminListener.onClickItemProductAdmin(product);
+            }
+        });
     }
 
     @Override
@@ -60,16 +73,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         private ImageView imgProduct;
         private TextView tvName;
         private TextView tvPrice;
-
+        private RelativeLayout item_product;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             imgProduct = itemView.findViewById(R.id.iv_product_img);
             tvName = itemView.findViewById(R.id.tv_product_name);
             tvPrice = itemView.findViewById(R.id.tv_product_price);
+            item_product = itemView.findViewById(R.id.layout_product);
         }
     }
 
-    public void convertByteArrayToBitmap(byte[] byteArray) {
-
-    }
 }
