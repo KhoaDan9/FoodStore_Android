@@ -7,13 +7,11 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    android:background="@drawable/cl_bg"
     tools:context=".LoginActivity">
 
     <ImageView android:contentDescription="@string/chao_xin_xin_chao"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/fc_logo"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"/>
 

@@ -23,7 +23,7 @@ import java.util.List;
 
 public class PayStaffFragment extends Fragment {
     private RecyclerView rcvPay;
-    private TextView tvBillId, tvTime;
+    private TextView tvBillId, tvTime, tvTotalPrice;
     private Button btnBackToMenu;
     private List<BillProduct> mListBillProduct;
     private PayAdapter payAdapter;
@@ -35,6 +35,8 @@ public class PayStaffFragment extends Fragment {
         rcvPay = view.findViewById(R.id.rcv_pay);
         tvBillId = view.findViewById(R.id.tv_bill_id);
         tvTime = view.findViewById(R.id.tv_time2);
+        tvTotalPrice = view.findViewById(R.id.tv_all_price2);
+
         btnBackToMenu = view.findViewById(R.id.btn_back_to_menu_staff);
 
         Bundle bundle = this.getArguments();
@@ -45,6 +47,7 @@ public class PayStaffFragment extends Fragment {
 
         tvBillId.setText(String.valueOf(bill.getId()));
         tvTime.setText(bill.getDate());
+        tvTotalPrice.setText(String.valueOf(bill.getTotalBill()));
 
         payAdapter = new PayAdapter();
         payAdapter.setData(mListBillProduct);
