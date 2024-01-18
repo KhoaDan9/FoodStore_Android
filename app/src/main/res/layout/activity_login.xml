@@ -7,15 +7,24 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
+    android:background="@drawable/cl_bg"
     tools:context=".LoginActivity">
+
+    <ImageView android:contentDescription="@string/chao_xin_xin_chao"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/fc_logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center|top"
+        android:gravity="center"
         android:text="@string/login_title"
-        android:textSize="32sp" />
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"/>
 
     <EditText
         android:id="@+id/edt_username"
@@ -25,10 +34,13 @@
         android:ems="10"
         android:hint="@string/input_username"
         android:inputType="text"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63"/>
+        android:padding="15dp"
+        android:textColorHint="#FF460A"
+        android:background="#FFFFFF"
+        android:layout_marginTop="20dp"/>
 
     <EditText
+        app:cornerRadius = "20dp"
         android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,17 +48,18 @@
         android:hint="@string/input_password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:padding="20dp"
-        android:textColorHint="#8D6E63" />
-
-
+        android:padding="15dp"
+        android:textColorHint="#FF460A"
+        android:background="#FFFFFF"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/design_default_color_primary"
+        android:layout_marginTop="30dp"
         android:text="@string/login_btn"
-        />
+        android:textColor="#FAF3F3"
+        android:textSize="16sp"
+        android:padding="15dp"/>
 </LinearLayout>
