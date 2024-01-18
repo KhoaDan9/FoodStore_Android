@@ -23,11 +23,12 @@ public interface BillDAO {
     Bill getNewBill();
     @Query("SELECT * FROM bill WHERE id=:id")
     Bill getBillById(int id);
+
     @Query("SELECT * FROM bill WHERE staffName=:name")
-    Bill getBillByStaffName(String name);
+    List<Bill> getBillByStaffName(String name);
 
     @Query("SELECT * FROM bill WHERE staffId=:id")
-    Bill getBillByStaffId(int id);
+    List<Bill> getBillByStaffId(int id);
 
     @Query("SELECT * FROM bill WHERE date >= :startDate AND date <= :endDate")
     Bill getBillByStaffName(Date startDate, Date endDate);

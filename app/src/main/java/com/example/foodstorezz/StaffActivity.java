@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.foodstorezz.database.Staff;
 import com.example.foodstorezz.fragment.admin.AddStaffFragment;
 import com.example.foodstorezz.fragment.admin.StaffManagementFragment;
+import com.example.foodstorezz.fragment.staff.BillFragment;
 import com.example.foodstorezz.fragment.staff.CartStaffFragment;
 import com.example.foodstorezz.fragment.staff.MenuStaffFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -65,7 +66,7 @@ public class StaffActivity extends AppCompatActivity implements NavigationView.O
         }
         else if (id == R.id.nav_bill_staff){
             if(mCurrentFragment != FRAGMENT_BILL){
-                replaceFragment(new AddStaffFragment());
+                replaceFragment(new BillFragment());
                 mCurrentFragment = FRAGMENT_BILL;
             }
         }
