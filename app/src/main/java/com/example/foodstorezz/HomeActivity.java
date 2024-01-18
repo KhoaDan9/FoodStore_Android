@@ -12,7 +12,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.foodstorezz.database.Bill;
 import com.example.foodstorezz.fragment.admin.AddStaffFragment;
+import com.example.foodstorezz.fragment.admin.BillFragment;
 import com.example.foodstorezz.fragment.admin.MenuFragment;
 import com.example.foodstorezz.fragment.admin.StaffManagementFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -73,7 +75,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_bill){
             if(mCurrentFragment != FRAGMENT_BILL){
-                replaceFragment(new StaffManagementFragment());
+                replaceFragment(new BillFragment());
                 mCurrentFragment = FRAGMENT_BILL;
             }
         }

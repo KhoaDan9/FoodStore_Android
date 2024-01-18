@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/border"
+    android:layout_margin="5dp"
+    >
+    <TextView
+        android:id="@+id/tv_bill_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hóa đơn số: "
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/tv_bill_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="123"
+        android:layout_toRightOf="@+id/tv_bill_id"
+        />
+    <TextView
+        android:id="@+id/tv_staff_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhân viên: "
+        android:textSize="18sp"
+        android:layout_below="@+id/tv_bill_id"/>
+    <TextView
+        android:id="@+id/tv_staff_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Dang Khoa"
+        android:layout_below="@+id/tv_bill_id"
+        android:layout_toRightOf="@+id/tv_staff_name"/>
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ngày thực hiện: "
+        android:textSize="18sp"
+        android:layout_below="@+id/tv_staff_name"/>
+    <TextView
+        android:id="@+id/tv_date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="2024/1/1"
+        android:layout_toRightOf="@id/tv_date"
+        android:layout_below="@+id/tv_staff_name"
+        />
+    <TextView
+        android:id="@+id/tv_all_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng tiền: "
+        android:textSize="18sp"
+        android:layout_below="@+id/tv_date"/>
+    <TextView
+        android:id="@+id/tv_all_price2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="120000"
+        android:layout_below="@+id/tv_date"
+        android:layout_toRightOf="@+id/tv_all_price"
+        />
+    <Button
+        android:id="@+id/btn_bill_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chi tiết"
+        android:textSize="18sp"
+        android:layout_alignParentRight="true"
+        />
+</RelativeLayout>

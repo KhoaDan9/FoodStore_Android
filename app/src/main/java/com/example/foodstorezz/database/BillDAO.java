@@ -6,6 +6,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.Date;
+import java.util.List;
 
 @Dao
 public interface BillDAO {
@@ -16,8 +17,10 @@ public interface BillDAO {
     void updateBill(Bill bill);
 
     @Query("SELECT * FROM bill ORDER BY id DESC")
-    Bill getNewBill();
+    List<Bill> getAllBill();
 
+    @Query("SELECT * FROM bill ORDER BY id DESC")
+    Bill getNewBill();
     @Query("SELECT * FROM bill WHERE id=:id")
     Bill getBillById(int id);
     @Query("SELECT * FROM bill WHERE staffName=:name")
