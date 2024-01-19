@@ -9,4 +9,6 @@
     <color name="blue2">#7AC5CD</color>
     <color name="green">#32CD32</color>
     <color name="red">#DD1212</color>
+    <color name="dark_gray">#9F9F9F</color>
+
 </resources>

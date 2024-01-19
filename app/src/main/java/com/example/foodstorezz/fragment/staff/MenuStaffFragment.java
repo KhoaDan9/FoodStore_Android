@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,9 +23,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodstorezz.R;
 import com.example.foodstorezz.adapters.ProductStaffAdapter;
+import com.example.foodstorezz.adapters.ProductTypeAdapter;
 import com.example.foodstorezz.database.FoodStoreDatabase;
 import com.example.foodstorezz.database.Product;
 import com.example.foodstorezz.model.Cart;
+import com.example.foodstorezz.model.ProductType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +37,12 @@ public class MenuStaffFragment extends Fragment {
     private Button btnGoToCart;
     private EditText edtSearch;
     private ImageView searchIcon;
+    private Spinner spnProductType;
     private ProductStaffAdapter productStaffAdapter;
+    private ProductTypeAdapter productTypeAdapter;
     private List<Product> mListProduct;
+    private String searchProduct, getType;
+
 
     @Nullable
     @Override
@@ -43,6 +51,23 @@ public class MenuStaffFragment extends Fragment {
         initUi(view);
 
         productStaffAdapter = new ProductStaffAdapter();
+
+        productTypeAdapter = new ProductTypeAdapter(requireContext(), R.layout.item_product_type_selected, getListProductType());
+        spnProductType.setAdapter(productTypeAdapter);
+
+        spnProductType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ProductType type = productTypeAdapter.getItem(position);
+                getType = type.getType();
+                loadDataBySearchAndType(searchProduct, getType);
+            };
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         loadData();
 
@@ -86,27 +111,42 @@ public class MenuStaffFragment extends Fragment {
         btnGoToCart = view.findViewById(R.id.btn_go_to_cart);
         edtSearch = view.findViewById(R.id.edt_search_bar_staff);
         searchIcon = view.findViewById(R.id.iv_search_icon_staff);
+        spnProductType = view.findViewById(R.id.spn_product_type);
+
+        searchProduct = edtSearch.getText().toString().trim();
     }
 
     private void goToCart() {
-        Bundle bundle = new Bundle();
-
         CartStaffFragment cartStaffFragment = new CartStaffFragment();
-        cartStaffFragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame_staff, cartStaffFragment)
                 .addToBackStack(null)
                 .commit();
     }
     public void searchProduct(){
-        String searchProduct = edtSearch.getText().toString().trim();
-        mListProduct = new ArrayList<Product>();
-        mListProduct = FoodStoreDatabase.getInstance(requireContext()).productDAO().searchProduct(searchProduct);
-        productStaffAdapter.setData(mListProduct);
+        searchProduct = edtSearch.getText().toString().trim();
+        loadDataBySearchAndType(searchProduct, getType);
         hideSoftKeyBoard();
+    }
+    public void loadDataBySearchAndType(String search, String type) {
+        if(type.equals("Tất cả") )
+            mListProduct = FoodStoreDatabase.getInstance(requireContext()).productDAO().searchProduct(search);
+        else
+            mListProduct = FoodStoreDatabase.getInstance(requireContext()).productDAO().searchProductWithType(search, type);
+        productStaffAdapter.setData(mListProduct);
     }
     public void hideSoftKeyBoard() {
         final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(requireContext().INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+    }
+
+    private List<ProductType> getListProductType() {
+        List<ProductType> list = new ArrayList<>();
+        list.add(new ProductType("Tất cả"));
+        List<String> listStr = FoodStoreDatabase.getInstance(requireContext()).productDAO().getAllType();
+        for (String type: listStr) {
+            list.add(new ProductType(type));
+        }
+        return list;
     }
 }

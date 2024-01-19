@@ -22,6 +22,16 @@ public interface ProductDAO {
     @Query("SELECT * FROM product")
     List<Product> getAllProduct();
 
+    @Query("SELECT DISTINCT type FROM product ORDER BY type ASC")
+    List<String> getAllType();
+
+    @Query("SELECT * FROM product WHERE type LIKE :type")
+    List<Product> getProductByType(String type);
+
     @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%'")
     List<Product> searchProduct(String name);
+
+    @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%' AND type LIKE :type")
+    List<Product> searchProductWithType(String name, String type);
+
 }
