@@ -27,7 +27,7 @@ public interface BillDAO {
     @Query("SELECT * FROM bill WHERE staffName=:name")
     List<Bill> getBillByStaffName(String name);
 
-    @Query("SELECT * FROM bill WHERE staffId=:id")
+    @Query("SELECT * FROM bill WHERE staffId=:id ORDER BY id DESC")
     List<Bill> getBillByStaffId(int id);
 
     @Query("SELECT * FROM bill WHERE date >= :startDate AND date <= :endDate")
