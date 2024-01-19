@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text="Cccd"
+            android:inputType="number"
             android:focusable="false"
             android:clickable="false"
             />
@@ -87,6 +88,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text="Phone number"
+            android:inputType="number"
             />
         <TextView
             android:layout_width="match_parent"

@@ -59,12 +59,14 @@
             android:text="@string/tv_cccd"
             android:layout_marginTop="10dp"
             android:textColor="@color/green"
+            android:inputType="number"
             />
         <EditText
             android:id="@+id/edt_staff_cccd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:inputType="number"
             android:text="Cccd"
             android:focusable="false"
             android:clickable="false"
