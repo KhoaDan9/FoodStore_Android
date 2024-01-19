@@ -28,10 +28,10 @@ public interface ProductDAO {
     @Query("SELECT * FROM product WHERE type LIKE :type")
     List<Product> getProductByType(String type);
 
-    @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%'")
+    @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%' ORDER BY name ASC")
     List<Product> searchProduct(String name);
 
-    @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%' AND type LIKE :type")
+    @Query("SELECT * FROM product WHERE name LIKE '%'||:name||'%' AND type LIKE :type ORDER BY name ASC")
     List<Product> searchProductWithType(String name, String type);
 
 }
