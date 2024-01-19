@@ -122,9 +122,6 @@ public class AddStaffFragment extends Fragment {
         return dateOfBirth.matches("\\d{2}/\\d{2}/\\d{4}");
     }
 
-    private boolean isValidPhoneNumber(String phoneNumber) {
-        return phoneNumber.matches("\\d{10}");
-    }
     private boolean isValidPassword(String password) {
         // Define password criteria
         String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
