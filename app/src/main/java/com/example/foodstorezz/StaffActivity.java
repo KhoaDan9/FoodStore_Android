@@ -18,6 +18,7 @@ import com.example.foodstorezz.fragment.admin.StaffManagementFragment;
 import com.example.foodstorezz.fragment.staff.BillFragment;
 import com.example.foodstorezz.fragment.staff.CartStaffFragment;
 import com.example.foodstorezz.fragment.staff.MenuStaffFragment;
+import com.example.foodstorezz.fragment.staff.StaffDetailFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class StaffActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -72,7 +73,7 @@ public class StaffActivity extends AppCompatActivity implements NavigationView.O
         }
         else if (id == R.id.nav_detail_staff){
             if(mCurrentFragment != FRAGMENT_DETAIL){
-                replaceFragment(new StaffManagementFragment());
+                replaceFragment(new StaffDetailFragment());
                 mCurrentFragment = FRAGMENT_DETAIL;
             }
         }
