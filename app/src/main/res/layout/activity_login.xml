@@ -11,7 +11,7 @@
     tools:context=".LoginActivity">
 
     <ImageView android:contentDescription="@string/chao_xin_xin_chao"
-        android:background="@drawable/fc_logo"
+        android:background="@drawable/fc2_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
