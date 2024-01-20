@@ -56,6 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         User user = FoodStoreDatabase.getInstance(this).userDAO().getUser(username);
+        Staff staff = FoodStoreDatabase.getInstance(this).staffDAO().getStaffbyUsername(username);
+
         if(user != null) {
             if (!user.getPassword().equals(password) )
             {
@@ -70,8 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
         }
-        else {
-            Staff staff = FoodStoreDatabase.getInstance(this).staffDAO().getStaffbyUsername(username);
+        else if (staff != null)
+        {
             if (!staff.getPassword().equals(password) )
             {
                 Toast.makeText(this, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
@@ -84,15 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-    }
-    public void hideSoftKeyBoard() {
-        try {
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
-        }
-        catch (NullPointerException ex) {
-            ex.printStackTrace();
-        }
+        else
+            Toast.makeText(this, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
     }
 
     private void initUi() {
