@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.foodstorezz.database.Bill;
 import com.example.foodstorezz.fragment.admin.AddStaffFragment;
 import com.example.foodstorezz.fragment.admin.BillFragment;
 import com.example.foodstorezz.fragment.admin.MenuFragment;

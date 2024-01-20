@@ -53,10 +53,10 @@ public class BillFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putInt("BillId", bill.getId());
 
-        PayStaffFragment payStaffFragment = new PayStaffFragment();
-        payStaffFragment.setArguments(bundle);
+        BillDetailFragment billDetailFragment = new BillDetailFragment();
+        billDetailFragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, payStaffFragment)
+                .replace(R.id.content_frame, billDetailFragment)
                 .addToBackStack(null)
                 .commit();
     }
